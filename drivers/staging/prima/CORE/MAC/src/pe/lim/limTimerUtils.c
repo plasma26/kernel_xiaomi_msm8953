@@ -1947,13 +1947,7 @@ limDeactivateAndChangeTimer(tpAniSirGlobal pMac, tANI_U32 timerId)
         }
         val = psessionEntry->beaconParams.beaconInterval;
         val = SYS_MS_TO_TICKS(val);
-        if (tx_timer_change(&pMac->lim.limTimers.g_lim_ap_ecsa_timer,
-                                val, 0) != TX_SUCCESS)
-        {
-                limLog(pMac, LOGE, FL("Unable to change g_lim_ap_ecsa_timer timer"));
-        }
 
-    case eLIM_AUTH_SAE_TIMER:
         if (tx_timer_deactivate(&pMac->lim.limTimers.sae_auth_timer)
             != TX_SUCCESS) {
             limLog(pMac, LOGP, FL("Unable to deactivate SAE auth timer"));
